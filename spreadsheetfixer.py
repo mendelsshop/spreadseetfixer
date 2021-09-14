@@ -1,17 +1,17 @@
 import datetime
 import tkinter
+import os
+print(os.getcwd())
+z = file_path = os.path.dirname(__file__)
 
-
-
-
-
+os.chdir(z)
 def output():
     file = e1.get()
     col = int(e2.get())
     output_file_name = e3.get()
     if not e3.get():
         output_file_name = f'{datetime.datetime.now().date().isoformat()}-{datetime.datetime.now().time().strftime("%I-%M-%S-%p")}'
-    with open(file,'r') as read_file:
+    with open(f'{file}.csv','r') as read_file:
         with open(f'{output_file_name}.csv', 'w') as write_file:
             for line in read_file:
                 write_line = [x for x in line.split(',',col)]
